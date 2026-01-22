@@ -1,407 +1,320 @@
-# Bus Ticket Booking System - MERN Stack
+# 🚍 BusIt — Bus Ticket Booking System (MERN)
 
-A full-stack bus ticket booking web application built with MongoDB, Express.js, React (Vite), and Node.js.
+A full‑stack bus ticket booking web application built with MongoDB, Express, React (Vite), and Node.js.
 
-## 🚌 Features
+---
 
-### User Features
-- **User Authentication**: Secure registration and login with JWT
-- **Bus Search**: Search buses by source, destination, and date
-- **Real-time Availability**: View available seats in real-time
-- **Interactive Seat Selection**: Visual seat layout with booked/available status
-- **Booking Management**: View, track, and cancel bookings
-- **PNR System**: Unique PNR generation for each booking
-- **Booking History**: Complete history of all bookings
+## 📚 Table of Contents
 
-### System Features
-- RESTful API architecture
-- Password encryption with bcrypt
-- JWT-based authentication
-- Real-time seat availability tracking
-- Responsive design for all devices
+- [✨ Features](#-features)
+- [🗂️ Project structure](#-project-structure)
+- [⚙️ Prerequisites](#-prerequisites)
+- [⬇️ Installation](#-installation)
+- [🔐 Environment variables](#-environment-variables)
+- [▶️ Running the application](#️-running-the-application)
+- [🧭 Using the application](#-using-the-application)
+- [🔌 API endpoints](#-api-endpoints)
+- [🛠️ Admin panel features](#-admin-panel-features)
+- [🖼️ Screenshots](#-screenshots)
+- [💻 Development & useful commands](#-development--useful-commands)
+- [🚀 Future enhancements](#-future-enhancements)
+- [🐞 Troubleshooting](#-troubleshooting)
+- [📄 License](#-license)
 
+---
 
-## 📁 Project Structure
+## ✨ Features
+
+### 👥 User features
+- 🔐 Secure registration and login with JWT
+- 🔎 Search buses by source, destination and date
+- ⚡ Real-time seat availability
+- 🪑 Interactive seat selection (visual layout)
+- 📥 Booking management: view, track, cancel bookings
+- 🎫 Unique PNR generation per booking
+- 📜 Booking history
+
+### 🖥️ System features
+- 🔁 RESTful API architecture
+- 🔒 Password hashing with bcrypt
+- 🧾 PDF ticket generation (PDFKit)
+- 📱 Responsive design
+
+---
+
+## 🗂️ Project structure
 
 ```
 ├── backend/              # Node.js + Express backend
-│   ├── models/          # Mongoose models
-│   │   ├── User.js     # User model
-│   │   ├── Bus.js      # Bus model
-│   │   ├── Route.js    # Bus route model
-│   │   └── Booking.js  # Booking model
-│   ├── routes/          # API routes
-│   │   ├── auth.js     # Authentication routes
-│   │   ├── users.js    # User routes
-│   │   ├── buses.js    # Bus routes
-│   │   ├── routes.js   # Bus route routes
-│   │   ├── bookings.js # Booking routes
-│   │   └── admin.js    # Admin routes
-│   ├── controllers/     # Business logic
-│   │   └── admin.controller.js  # Admin operations
-│   ├── middleware/      # Custom middleware
-│   │   ├── auth.js     # Authentication middleware
-│   │   └── authorize.js # Authorization middleware
-│   ├── server.js        # Entry point
-│   └── package.json     # Backend dependencies
+│   ├── controllers/      # Business logic
+│   ├── middleware/       # auth, authorization, error handlers
+│   ├── models/           # Mongoose models (User, Bus, Route, Booking)
+│   ├── routes/           # API routes (auth, users, buses, bookings, admin)
+│   ├── server.js         # Backend entry point
+│   └── package.json
 │
-├── frontend/            # React + Vite frontend (User App)
+├── frontend/             # React + Vite frontend (User)
 │   ├── src/
-│   │   ├── pages/      # Page components
-│   │   │   ├── Login.jsx
-│   │   │   ├── Register.jsx
-│   │   │   ├── Home.jsx           # Search page
-│   │   │   ├── BusListing.jsx     # Bus search results
-│   │   │   ├── SeatSelection.jsx  # Seat booking
-│   │   │   ├── MyBookings.jsx     # Booking history
-│   │   │   └── Dashboard.jsx      # User profile
-│   │   ├── components/ # Reusable components
-│   │   ├── services/   # API service layer
-│   │   │   └── api.js
-│   │   ├── App.jsx     # Main app component
-│   │   ├── App.css     # Styles
-│   │   └── main.jsx    # Entry point
-│   └── package.json    # Frontend dependencies
+│   │   ├── pages/        # Login, Register, Home, BusListing, SeatSelection, MyBookings, Dashboard
+│   │   ├── components/   # UI components
+│   │   └── services/     # API service layer (api.js)
+│   └── package.json
 │
-├── frontend-admin/      # React + Vite frontend (Admin Panel)
+├── frontend-admin/       # React + Vite frontend (Admin Panel)
 │   ├── src/
-│   │   ├── pages/      # Admin page components
-│   │   │   ├── AdminLogin.jsx
-│   │   │   ├── AdminDashboard.jsx
-│   │   │   ├── BusesManagement.jsx
-│   │   │   ├── RoutesManagement.jsx
-│   │   │   ├── BookingsManagement.jsx
-│   │   │   └── UsersManagement.jsx
-│   │   ├── components/ # Admin components
-│   │   ├── services/   # API service layer
-│   │   └── App.jsx     # Main admin app
-│   └── package.json    # Admin frontend dependencies
+│   │   ├── pages/        # AdminLogin, AdminDashboard, BusesManagement, RoutesManagement, BookingsManagement, UsersManagement
+│   │   └── services/
+│   └── package.json
 │
 └── README.md
 ```
 
+---
 
-## 🚀 Getting Started
+## ⚙️ Prerequisites
 
-### Prerequisites
+- Node.js (v18+ recommended) 🟢
+- MongoDB (local or Atlas) 🗄️
+- npm or yarn 📦
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or MongoDB Atlas account)
-- npm or yarn
+---
 
-### Installation
+## ⬇️ Installation
 
-1. **Install Backend Dependencies**
-   ```bash
-   cd backend
-   npm install
-   ```
-
-2. **Install User Frontend Dependencies**
-   ```bash
-   cd frontend
-   npm install
-   ```
-
-3. **Install Admin Frontend Dependencies**
-   ```bash
-   cd frontend-admin
-   npm install
-   ```
-
-4. **Configure Environment Variables**
-   
-   The `.env` file is already created in the backend folder. Update it if needed:
-   ```env
-   PORT=5000
-   MONGODB_URI=mongodb://localhost:27017/mern-app
-   JWT_SECRET=your_jwt_secret_key_here
-   NODE_ENV=development
-   ```
-
-   **Important**: Replace `JWT_SECRET` with a secure random string!
-
-## 🎮 Running the Application
-
-### Option 1: Using VS Code Tasks (Recommended)
-
-1. Press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (Mac)
-2. Type "Tasks: Run Task"
-3. Select **"Start Full Stack"** to run both user app servers simultaneously
-
-Or run them separately:
-- **"Start Backend Server"** - Runs on http://localhost:5000
-- **"Start Frontend Server"** - User app on http://localhost:3000
-
-**To run Admin Panel:**
-```bash
-cd frontend-admin
-npm run dev
-```
-Admin panel runs on http://localhost:3001
-
-### Option 2: Manual Start
-
-**Terminal 1 - Backend:**
+1. Install backend dependencies
 ```bash
 cd backend
-npm run dev
+npm install
 ```
 
-**Terminal 2 - User Frontend:**
+2. Install user frontend dependencies
 ```bash
 cd frontend
-npm run dev
+npm install
 ```
 
-**Terminal 3 - Admin Frontend (Optional):**
+3. Install admin frontend dependencies
 ```bash
 cd frontend-admin
-npm run dev
+npm install
 ```
 
-## 📱 Using the Application
+---
 
-1. **Register**: Create a new account with name, email, and password
-2. **Login**: Sign in with your credentials
-3. **Search Buses**: 
-   - Select source and destination cities
-   - Choose travel date
-   - Click "Search Buses"
-4. **Select Seats**:
-   - View available buses
-   - Click "Select Seats" on preferred bus
-   - Choose seats from visual layout
-   - Enter passenger details
+## 🔐 Environment variables
 
-## 🔌 API Endpoints
+Create a `.env` file in `backend/` and set:
 
-### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-
-### Users (Protected)
-- `GET /api/users/me` - Get current user
-- `GET /api/users` - Get all users
-
-### Buses
-- `GET /api/buses` - Get all active buses
-- `GET /api/buses/:id` - Get bus by ID
-- `GET /api/bookings/:id/ticket` - Download PDF ticket
-
-### Admin (Protected - Admin Only)
-- `GET /api/admin/buses` - Get all buses
-- `POST /api/admin/buses` - Create bus
-- `PUT /api/admin/buses/:id` - Update bus
-- `DELETE /api/admin/buses/:id` - Delete bus
-- `GET /api/admin/routes` - Get all routes
-- `POST /api/admin/routes` - Create route
-- `PUT /api/admin/routes/:id` - Update route
-- `DELETE /api/admin/routes/:id` - Delete route
-- `GET /api/admin/bookings` - Get all bookings
-- `PUT /api/admin/bookings/:id/cancel` - Cancel any booking
-- `GET /api/admin/users` - Get all users
-- `PUT /api/admin/users/:id/role` - Update user role
-- `DELETE /api/admin/users/:id` - Delete user
-- `GET /api/admin/dashboard/stats` - Get dashboard statistics
-
-## 💡 Development
-
-- Backend runs on: http://localhost:5000
-- User Frontend runs on: http://localhost:3000
-- Admin Frontend runs on: http://localhost:3001
-- API proxy configured in Vite for `/api` routes
-
-### Useful Commands
-
-**Backend:**
-```bash
-npm run dev    # Start development server with nodemon
-npm start      # Start production server
-## 💡 Development
-
-- Backend runs on: http://localhost:5000
-- Frontend runs on: http://localhost:3000
-- API proxy configured in Vite for `/api` routes
-
-### Useful Commands
-
-**Backend:**
-```bash
-npm run dev    # Start development server with nodemon
-npm start      # Start production server
-npm run seed   # Populate database with sample data
+```env
+PORT=5000
+MONGODB_URI=mongodb://localhost:27017/busit
+JWT_SECRET=your_jwt_secret_here
+NODE_ENV=development
 ```
 
-**Frontend:**
+⚠️ Important: Replace `JWT_SECRET` with a secure random string and do not commit `.env`.
+
+---
+
+## ▶️ Running the application
+
+Option A — manual (recommended for development):
+
+Terminal 1 — backend
 ```bash
-npm run dev     # Start development server
-npm run build   # Build for production
-npm run preview # Preview production build
+cd backend
+npm run dev    # runs with nodemon
 ```
 
-## 🛠️ Tech Stack
+Terminal 2 — user frontend
+```bash
+cd frontend
+npm run dev    # Vite dev server (default: http://localhost:3000)
+```
 
-### Backend
-- **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **MongoDB** - Database
-- **Mongoose** - ODM (Object Data Modeling)
-- **JWT** - Authentication tokens
-- **bcryptjs** - Password hashing
-- **PDFKit** - PDF ticket generation
+Terminal 3 — admin frontend (optional)
+```bash
+cd frontend-admin
+npm run dev    # Admin panel (default: http://localhost:3001)
+```
 
-### Frontend (User & Admin)
-- **React 18** - UI library
-- **Vite** - Build tool & dev server
-- **React Router** - Client-side routing
-- **Axios** - HTTP client for API calls
+Option B — VS Code Tasks  
+If VS Code tasks are configured, run the "Start Full Stack" task to start backend and frontends.
 
-## 🎯 Admin Panel Features
+---
 
-### Admin Authentication
-- Separate admin login at http://localhost:3001
-- Role-based access control (admin, super_admin)
-- Protected admin routes
+## 🧭 Using the application
 
-### Admin Capabilities
-- **Dashboard**: View system statistics (users, buses, routes, bookings, revenue)
-- **Bus Management**: Create, edit, delete buses
-- **Route Management**: Create, edit, delete routes with pricing
-- **Booking Management**: View all bookings, cancel bookings (releases seats)
-- **User Management**: View users, change roles, delete users
+1. 📝 Register: create account with name, email, password  
+2. 🔑 Login: sign in  
+3. 🔎 Search buses: pick source, destination, date → Search  
+4. 🪑 Select seats: open a bus, choose seats, enter passenger details  
+5. ✅ Confirm booking → PDF ticket available for download  
+6. 📂 My bookings: view, cancel bookings (if cancellation allowed)
 
-## 🎯 Features to Add (Future Enhancements)
+---
 
-- [ ] Payment gateway integration
-- [x] Email notifications for bookings
-- [ ] SMS alerts
-- [ ] Multiple passenger booking in one transaction
-- [ ] Seat type preferences (window/aisle)
-- [ ] Discount coupons and offers
-- [x] Admin panel for bus/route management
-- [ ] Rating and review system
-- [ ] Refund management
-- [ ] Bus tracking (real-time location)
-- [ ] Multi-language support
-- [x] PDF ticket generation
+## 🔌 API endpoints (overview)
 
-## 📝 Notes
+**Authentication**
+- POST /api/auth/register
+- POST /api/auth/login
 
-- Make sure MongoDB is running before starting the backend
-- The `.env` file contains sensitive information - never commit it to version control
-- Frontend proxy configuration forwards `/api` requests to the backend
-- Default seat layout is 4 seats per row with automatic aisle spacing
-- A🚀 Quick Start for New Users
+**User (protected)**
+- GET /api/users/me
+- GET /api/users
 
-1. **Clone and Install**
-   ```bash
-   # Install all dependencies
-   cd backend && npm install
-   cd ../frontend && npm install
-   cd ../frontend-admin && npm install
-   ```
+**Buses & Booking**
+- GET /api/buses
+- GET /api/buses/:id
+- POST /api/bookings
+- GET /api/bookings/:id/ticket  — download PDF ticket
 
-2. **Setup MongoDB**
-   - Start MongoDB locally or use MongoDB Atlas
-   - Update `MONGODB_URI` in backend/.env
+**Admin (protected — admin role)**
+- GET /api/admin/buses
+- POST /api/admin/buses
+- PUT /api/admin/buses/:id
+- DELETE /api/admin/buses/:id
+- GET /api/admin/routes
+- POST /api/admin/routes
+- PUT /api/admin/routes/:id
+- DELETE /api/admin/routes/:id
+- GET /api/admin/bookings
+- PUT /api/admin/bookings/:id/cancel
+- GET /api/admin/users
+- PUT /api/admin/users/:id/role
+- DELETE /api/admin/users/:id
+- GET /api/admin/dashboard/stats
 
-3. **Create Admin User**
-   ```javascript
-   // In MongoDB shell or Compass:
-   db.users.insertOne({
-     name: "Admin",
-     email: "admin@busticket.com",
-     password: "$2a$10$...", // Use bcrypt to hash password
-     role: "admin",
-     createdAt: new Date()
-   })
-   ```
+(Refer to route files in backend/routes for full details and request/response payloads.)
 
-4. **Run Application**
-   ```bash
-   # Terminal 1: Backend
-   cd backend && npm run dev
-   
-   # Terminal 2: User Frontend
-   cd frontend && npm run dev
-   
-   # Terminal 3: Admin Panel (Optional)
-   cd frontend-admin && npm run dev
-   ```
+---
 
-5. **Access Applications**
-   - User App: http://localhost:3000
-   - Admin Panel: http://localhost:3001
-   - Backend API: http://localhost:5000
+## 🛠️ Admin panel features
 
-## dmin users must have `role: "admin"` or `role: "super_admin"` in database
-- Console logs are removed from browser (frontend) for production readiness
-- Backend server logs are preserved for monitoring and debugging
+- 🔐 Separate admin login
+- 🧾 Role-based access control (admin, super_admin)
+- 📊 Dashboard: users, buses, routes, bookings, revenue
+- 🚌 Bus & route management (create/edit/delete)
+- 🧾 Booking management (view/cancel)
+- 👤 User management (view/change role/delete)
 
-## 🐛 Troubleshooting
+Ensure admin users in DB have `role: "admin"` or `role: "super_admin"`.
 
-**MongoDB Connection Error:**
-- Ensure MongoDB is installed and running
-- Check if `MONGODB_URI` in `.env` is correct
-- For MongoDB Atlas, ensure your IP is whitelisted
+---
 
-**Port Already in Use:**
-- Change `PORT` in backend `.env` file
-- Update proxy in frontend `vite.config.js` if you change the backend port
-- Admin panel uses port 3001 by default
+## 🖼️ Screenshots
 
-**Booking Seats Already Taken:**
-- The app checks seat availability in real-time
-- If you see this error, refresh the seat selection page
+Add screenshots to the repository under `docs/screenshots/` (recommended). Commit the images and reference them below. Example filenames:
 
-**Admin Login Fails:**
-- Ensure user has `role: "admin"` or `role: "super_admin"` in database
-- Check MongoDB: `db.users.findOne({email: "admin@example.com"})`
-- Update role: `db.users.updateOne({email: "admin@example.com"}, {$set: {role: "admin"}})`
-- **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **MongoDB** - Database
-- **Mongoose** - ODM
-- **JWT** - Authentication
-- **bcryptjs** - Password hashing
+- `docs/screenshots/home.png`
+- `docs/screenshots/bus-listing.png`
+- `docs/screenshots/seat-selection.png`
+- `docs/screenshots/booking-confirmation.png`
+- `docs/screenshots/my-bookings.png`
+- `docs/screenshots/admin-dashboard.png`
 
-### Frontend
-- **React 18** - UI library
-- **Vite** - Build tool
-- **React Router** - Routing
-- **Axios** - HTTP client
+Placeholders (replace with your actual screenshots after adding images to the repo):
 
-## Development
+### 🏠 Home / Search Page
+![Home / Search Page](docs/screenshots/home.png)
 
-- Backend runs on: http://localhost:5000
-- Frontend runs on: http://localhost:3000
-- API proxy configured in Vite for `/api` routes
+### 🧾 Bus Listing / Search Results
+![Bus Listing](docs/screenshots/bus-listing.png)
 
-## Default Features
+### 🪑 Seat Selection
+![Seat Selection](docs/screenshots/seat-selection.png)
 
-1. **User Registration**: Create new accounts with name, email, password
-2. **User Login**: Authenticate with email and password
-3. **Dashboard**: View user profile and list of all users
-4. **Logout**: Clear session and return to login
+### 🎫 Booking Confirmation / Ticket
+![Booking Confirmation](docs/screenshots/booking-confirmation.png)
 
-## Next Steps
+### 📂 My Bookings / Booking History
+![My Bookings](docs/screenshots/my-bookings.png)
 
-- Add more models and routes as needed
-- Implement additional features (e.g., user profiles, posts, etc.)
-- Add form validation
-- Implement error boundaries
-- Add loading states
-- Deploy to production (Heroku, Vercel, etc.)
+### 🛠️ Admin Dashboard
+![Admin Dashboard](docs/screenshots/admin-dashboard.png)
 
-## Notes
+Notes:
+- To add a screenshot: create `docs/screenshots/` in repo and commit images with the names above.
+- Use relative paths in the README so GitHub shows previews automatically.
+- If file names differ, update the image links accordingly.
 
-- Make sure MongoDB is running before starting the backend
-- The `.env` file contains sensitive information - never commit it to version control
-- Frontend proxy configuration forwards `/api` requests to the backend
+---
 
-## License
+## 💻 Development & useful commands
+
+Backend:
+```bash
+npm run dev    # start with nodemon
+npm start      # start production
+npm run seed   # populate DB with sample data (if provided)
+```
+
+Frontend (user & admin):
+```bash
+npm run dev     # start Vite dev server
+npm run build   # build for production
+npm run preview # preview production build
+```
+
+Default dev ports:
+- Backend: http://localhost:5000
+- User frontend: http://localhost:3000
+- Admin frontend: http://localhost:3001
+
+If you change backend port, update the frontend proxy in `vite.config.js`.
+
+---
+
+## 🚀 Future enhancements
+
+- 💳 Payment gateway integration
+- 📲 SMS alerts
+- 👥 Multiple-passenger booking in one transaction
+- 🪑 Seat type preferences (window/aisle)
+- 🎟️ Discount coupons and offers
+- ⭐ Rating & review system
+- 🔁 Refund management
+- 📍 Bus tracking (real-time)
+- 🌐 Multi-language support
+
+Implemented:
+- ✅ Email notifications for bookings
+- ✅ Admin panel for bus/route management
+- ✅ PDF ticket generation
+
+---
+
+## 🐞 Troubleshooting
+
+**MongoDB connection error**
+- Ensure MongoDB is running and `MONGODB_URI` is correct
+- For Atlas, whitelist your IP
+
+**Port in use**
+- Change `PORT` in backend `.env` and update frontend proxy if needed
+
+**Booking conflict (seat already taken)**
+- Refresh seat selection; the app validates availability before confirming
+
+**Admin login fails**
+- Confirm user has `role: "admin"` or `role: "super_admin"` in DB:
+```js
+db.users.updateOne({ email: "admin@example.com" }, { $set: { role: "admin" }})
+```
+
+---
+
+## 📄 Notes
+
+- Never commit `.env` or other secrets to version control. 🔒  
+- Default seat layout is 4 seats per row with automatic aisle spacing. 🪑  
+- Remove console.logs from frontend for production readiness. ✅
+
+---
+
+## 📜 License
 
 MIT
-#   B u s I t  
- 
+
+---
