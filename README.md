@@ -114,28 +114,23 @@ NODE_ENV=development
 
 ## ▶️ Running the application
 
-Option A — manual (recommended for development):
-
 Terminal 1 — backend
 ```bash
 cd backend
-npm run dev    # runs with nodemon
+npm start   
 ```
 
 Terminal 2 — user frontend
 ```bash
 cd frontend
-npm run dev    # Vite dev server (default: http://localhost:3000)
+npm run dev    #(default: http://localhost:3000)
 ```
 
 Terminal 3 — admin frontend (optional)
 ```bash
 cd frontend-admin
-npm run dev    # Admin panel (default: http://localhost:3001)
+npm run dev    # Admin panel(default: http://localhost:3001)
 ```
-
-Option B — VS Code Tasks  
-If VS Code tasks are configured, run the "Start Full Stack" task to start backend and frontends.
 
 ---
 
@@ -285,6 +280,7 @@ Default dev ports:
 If you change backend port, update the frontend proxy in `vite.config.js`.
 
 ---
+
 
 
 
