@@ -196,17 +196,6 @@ Ensure admin users in DB have `role: "admin"` or `role: "super_admin"`.
 
 ## 🖼️ Screenshots
 
-Add screenshots to the repository under `docs/screenshots/` (recommended). Commit the images and reference them below. Example filenames:
-
-- `docs/screenshots/home.png`
-- `docs/screenshots/bus-listing.png`
-- `docs/screenshots/seat-selection.png`
-- `docs/screenshots/booking-confirmation.png`
-- `docs/screenshots/my-bookings.png`
-- `docs/screenshots/admin-dashboard.png`
-
-Placeholders (replace with your actual screenshots after adding images to the repo):
-
 ### 🏠 Home / Search Page
 <img width="2845" height="1537" alt="image" src="https://github.com/user-attachments/assets/38914510-e347-42ad-b4b1-d68baf3d8f6b" />
 
@@ -280,6 +269,7 @@ Default dev ports:
 If you change backend port, update the frontend proxy in `vite.config.js`.
 
 ---
+
 
 
 
