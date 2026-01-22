@@ -75,7 +75,7 @@ A full‑stack bus ticket booking web application built with MongoDB, Express, R
 
 - Node.js (v18+ recommended) 🟢
 - MongoDB (local or Atlas) 🗄️
-- npm or yarn 📦
+- npm  📦
 
 ---
 
@@ -318,3 +318,4 @@ db.users.updateOne({ email: "admin@example.com" }, { $set: { role: "admin" }})
 MIT
 
 ---
+
