@@ -248,6 +248,16 @@ ___________________________________________________________________
 <img width="2879" height="1434" alt="image" src="https://github.com/user-attachments/assets/829b2ead-e7ad-44f3-b4df-837e919cd2ad" />
 <img width="2553" height="1012" alt="image" src="https://github.com/user-attachments/assets/0c6abf1f-f4ff-4124-b3d0-8e9f3edff2fb" />
 
+### 🛣️ Manage Routes
+<img width="2879" height="1538" alt="image" src="https://github.com/user-attachments/assets/3aea9cb9-71fe-4904-b1ba-c38322222133" />
+<img width="2540" height="1199" alt="image" src="https://github.com/user-attachments/assets/b29fbbfd-551b-480c-a708-fc1ef2a5d4a4" />
+
+### 📝 Manage Bookings 
+<img width="2877" height="1533" alt="image" src="https://github.com/user-attachments/assets/b32b0458-bdf1-4a0c-a2f0-0c30a5d3511c" />
+
+
+
+
 
 
 
@@ -279,4 +289,5 @@ Default dev ports:
 If you change backend port, update the frontend proxy in `vite.config.js`.
 
 ---
+
 
