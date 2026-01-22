@@ -16,10 +16,6 @@ A full‑stack bus ticket booking web application built with MongoDB, Express, R
 - [🔌 API endpoints](#-api-endpoints)
 - [🛠️ Admin panel features](#-admin-panel-features)
 - [🖼️ Screenshots](#-screenshots)
-- [💻 Development & useful commands](#-development--useful-commands)
-- [🚀 Future enhancements](#-future-enhancements)
-- [🐞 Troubleshooting](#-troubleshooting)
-- [📄 License](#-license)
 
 ---
 
@@ -289,5 +285,6 @@ Default dev ports:
 If you change backend port, update the frontend proxy in `vite.config.js`.
 
 ---
+
 
 
