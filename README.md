@@ -245,30 +245,6 @@ ___________________________________________________________________
 
 ---
 
-## 💻 Development & useful commands
-
-Backend:
-```bash
-npm run dev    # start with nodemon
-npm start      # start production
-npm run seed   # populate DB with sample data (if provided)
-```
-
-Frontend (user & admin):
-```bash
-npm run dev     # start Vite dev server
-npm run build   # build for production
-npm run preview # preview production build
-```
-
-Default dev ports:
-- Backend: http://localhost:5000
-- User frontend: http://localhost:3000
-- Admin frontend: http://localhost:3001
-
-If you change backend port, update the frontend proxy in `vite.config.js`.
-
----
 
 
 
