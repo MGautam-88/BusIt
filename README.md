@@ -217,27 +217,41 @@ Add screenshots to the repository under `docs/screenshots/` (recommended). Commi
 Placeholders (replace with your actual screenshots after adding images to the repo):
 
 ### 🏠 Home / Search Page
-![Home / Search Page](docs/screenshots/home.png)
+<img width="2845" height="1537" alt="image" src="https://github.com/user-attachments/assets/38914510-e347-42ad-b4b1-d68baf3d8f6b" />
+
 
 ### 🧾 Bus Listing / Search Results
-![Bus Listing](docs/screenshots/bus-listing.png)
+<img width="2833" height="1473" alt="image" src="https://github.com/user-attachments/assets/3ce1918f-410c-4524-824c-56c6371b3b44" />
+
 
 ### 🪑 Seat Selection
-![Seat Selection](docs/screenshots/seat-selection.png)
+<img width="2846" height="1530" alt="image" src="https://github.com/user-attachments/assets/8ab544cd-865e-4ca6-8c60-746e2a461230" />
+
 
 ### 🎫 Booking Confirmation / Ticket
-![Booking Confirmation](docs/screenshots/booking-confirmation.png)
+<img width="2844" height="1532" alt="image" src="https://github.com/user-attachments/assets/5c3d8470-7d69-48f7-b0fe-9a88e90f24f2" />
+<img width="2849" height="1534" alt="image" src="https://github.com/user-attachments/assets/bee715e0-8bbe-4152-8fee-03f188feeaca" />
+<img width="2846" height="1534" alt="image" src="https://github.com/user-attachments/assets/54a9dbf3-96dc-4a5b-9bf6-2a5f41b5891f" />
+
+
+
 
 ### 📂 My Bookings / Booking History
-![My Bookings](docs/screenshots/my-bookings.png)
+<img width="2850" height="1536" alt="image" src="https://github.com/user-attachments/assets/fe2d1b48-4c36-4f50-a0c3-59a82fac04bf" />
+
+___________________________________________________________________
 
 ### 🛠️ Admin Dashboard
-![Admin Dashboard](docs/screenshots/admin-dashboard.png)
+<img width="2879" height="1537" alt="image" src="https://github.com/user-attachments/assets/c0d53dcc-0834-4fd3-8f28-81de119b3891" />
 
-Notes:
-- To add a screenshot: create `docs/screenshots/` in repo and commit images with the names above.
-- Use relative paths in the README so GitHub shows previews automatically.
-- If file names differ, update the image links accordingly.
+### 🚍 Manage Buses
+<img width="2879" height="1434" alt="image" src="https://github.com/user-attachments/assets/829b2ead-e7ad-44f3-b4df-837e919cd2ad" />
+<img width="2553" height="1012" alt="image" src="https://github.com/user-attachments/assets/0c6abf1f-f4ff-4124-b3d0-8e9f3edff2fb" />
+
+
+
+
+
 
 ---
 
@@ -265,3 +279,4 @@ Default dev ports:
 If you change backend port, update the frontend proxy in `vite.config.js`.
 
 ---
+
