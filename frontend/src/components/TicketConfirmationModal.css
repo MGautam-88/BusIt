@@ -1,0 +1,132 @@
+.ticket-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.ticket-modal {
+  background: #fff;
+  border-radius: 18px;
+  padding: 32px;
+  width: 92%;
+  max-width: 620px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+  animation: slideUp 0.35s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.ticket-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.ticket-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  display: grid;
+  place-items: center;
+}
+
+.ticket-icon svg { width: 40px; height: 40px; }
+
+.label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #7f8c8d;
+  margin: 0 0 4px;
+}
+
+.pnr-value {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #2c3e50;
+  letter-spacing: 1px;
+}
+
+.ticket-body {
+  background: linear-gradient(135deg, #f7f9fc 0%, #eef2f7 100%);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.ticket-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.value {
+  margin: 0;
+  font-size: 1rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.price { color: #667eea; }
+
+.ticket-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-outline {
+  border: 1px solid #dcdcdc;
+  background: #fff;
+  color: #2c3e50;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover { background: #f7f7f7; }
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(102, 126, 234, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(102, 126, 234, 0.55);
+}
+
+@media (max-width: 600px) {
+  .ticket-modal { padding: 24px; }
+  .ticket-actions { flex-direction: column; }
+  .btn-outline, .btn-primary { width: 100%; text-align: center; }
+}
