@@ -1,6 +1,8 @@
 # 🚍 BusIt — Bus Ticket Booking System (MERN)
 
 A full‑stack bus ticket booking web application built with MongoDB, Express, React (Vite), and Node.js.
+<img width="2844" height="1532" alt="image" src="https://github.com/user-attachments/assets/d89f9316-e9a1-4b91-a679-6d49c875644f" />
+
 
 ---
 
@@ -244,6 +246,7 @@ ___________________________________________________________________
 
 
 ---
+
 
 
 
